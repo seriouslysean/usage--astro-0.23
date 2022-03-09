@@ -30,6 +30,9 @@ export default {
             required: true,
         },
     },
+    mounted() {
+        console.log('[AD] mounted', this.title);
+    },
     computed: {
         paddingTop() {
             return `${(this.height / this.width) * 100}%`;

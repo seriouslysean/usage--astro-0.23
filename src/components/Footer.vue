@@ -22,6 +22,7 @@ export default {
         this.currentTime = this.getCurrentTime();
     },
     mounted() {
+        console.log('[Footer] mounted');
         this.isMounted = true;
         // update the time every second
         this.interval = setInterval(() => {
