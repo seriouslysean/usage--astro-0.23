@@ -1,8 +1,16 @@
 # Astro Usage (+ Vue 3)
 
+Pushing to `main` will automatically deploy the changes to Vercel, https://astro-usage.vercel.app/.
+
+To run a dev build:
+
 ```
-npm init astro -- --template framework-vue
+npm run dev
 ```
 
-This example showcases Astro working with [Vue](https://v3.vuejs.org/).
+To run a prod build:
+
+```
+npm run preview
+```
 
