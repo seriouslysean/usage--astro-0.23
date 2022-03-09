@@ -1,0 +1,42 @@
+---
+// Component Imports
+import Counter from '../components/Counter.vue';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<style>
+			html,
+			body {
+				font-family: system-ui;
+				margin: 0;
+			}
+			body {
+				padding: 2rem;
+			}
+			.section__full {
+				height: 100vh;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="section__full">
+				<Counter client:visible>
+					<h1>Hello, Vue!</h1>
+				</Counter>
+			</section>
+			<section class="section__full">
+				<Counter client:visible>
+					<h1>Hello, Vue!</h1>
+				</Counter>
+			</section>
+		</main>
+	</body>
+</html>
