@@ -1,6 +1,6 @@
 ---
 // Access passed-in component props, like `<X title="Hello, World" />`
-const { image, width, height } = Astro.props;
+const { title, image, width, height } = Astro.props;
 const paddingTop = `${(height / width) * 100}%`;
 // Can't figure out a way to dynamically interpolate the style tag
 // only to replace the whole thing with a variable with astro syntax using {}
@@ -11,5 +11,5 @@ const adStyle = `background-image:url(${image});padding-top:${paddingTop};`;
     class="ad"
     style={adStyle}>
 
-    <p>SSR Advertising</p>
+    <p>{ title }</p>
 </div>

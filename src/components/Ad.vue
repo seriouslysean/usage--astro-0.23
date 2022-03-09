@@ -6,13 +6,17 @@
             'padding-top': paddingTop,
         }">
 
-        <p>Advertising</p>
+        <p>{{ title }}</p>
     </div>
 </template>
 
 <script>
 export default {
     props: {
+        title: {
+            type: String,
+            required: true,
+        },
         image: {
             type: String,
             required: true,

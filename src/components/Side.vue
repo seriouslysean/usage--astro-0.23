@@ -3,11 +3,13 @@
         <p>Side</p>
 
         <Ad
+            title="SSR Ad (Vue)"
             image="https://placekitten.com/200/100"
             :width="200"
             :height="100" />
 
         <Ad
+            title="SSR Ad (Vue)"
             image="https://placekitten.com/300/100"
             :width="300"
             :height="100" />

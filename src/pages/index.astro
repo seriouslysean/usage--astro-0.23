@@ -1,7 +1,6 @@
 ---
 // Component Imports
 import Ad from '../components/Ad.astro';
-import Counter from '../components/Counter.vue';
 import Footer from '../components/Footer.vue';
 import Header from '../components/Header.vue';
 import Nav from '../components/Nav.vue';
@@ -125,7 +124,7 @@ import Side from '../components/Side.vue';
         <div class="app">
             <Header />
 
-            <Nav />
+            <Nav client:load />
 
             <!-- http://www.catipsum.com/ -->
             <main class="content">
@@ -140,6 +139,20 @@ import Side from '../components/Side.vue';
                 <hr>
 
                 <p>Siamese munchkin and puma for puma, havana brown. Siberian bobcat so ragdoll for lion tom balinese . Birman devonshire rex and donskoy british shorthair cougar. Panther birman or abyssinian . Ocicat. Bombay bobcat. Norwegian forest.</p>
+
+                <!-- Astro component, similar to vue but different syntax -->
+                <!-- https://docs.astro.build/en/core-concepts/astro-components/ -->
+                <Ad
+                    title="SSR Ad (Astro)"
+                    image="https://placekitten.com/800/100"
+                    width="800"
+                    height="100" />
+
+                <p>Tomcat cougar leopard for havana brown. American shorthair tabby for ocicat. Turkish angora ocicat, yet havana brown british shorthair singapura leopard. Maine coon abyssinian . Ocelot. Maine coon donskoy.</p>
+
+                <hr>
+
+                <p>Malkin jaguar. Maine coon turkish angora yet bombay yet puma. Balinese russian blue. Donskoy devonshire rex scottish fold panther. Tomcat ocelot yet panther munchkin, kitten. Abyssinian kitty and british shorthair yet british shorthair.</p>
             </main>
 
             <Side />
@@ -147,11 +160,12 @@ import Side from '../components/Side.vue';
             <!-- Astro component, similar to vue but different syntax -->
             <!-- https://docs.astro.build/en/core-concepts/astro-components/ -->
             <Ad
+                title="SSR Ad (Astro)"
                 image="https://placekitten.com/200/300"
                 width="200"
                 height="300" />
 
-            <Footer />
+            <Footer client:visible />
         </div>
 	</body>
 </html>
