@@ -1,7 +1,7 @@
 <template>
 	<div class="footer">
         <p>Footer</p>
-        <small>{{ currentTime }}</small>
+        <small v-if="isMounted">{{ currentTime }}</small>
     </div>
 </template>
 
@@ -15,12 +15,14 @@ export default {
         return {
             currentTime: ref(null),
             interval: ref(null),
+            isMounted: ref(false),
         };
     },
     created() {
         this.currentTime = this.getCurrentTime();
     },
     mounted() {
+        this.isMounted = true;
         // update the time every second
         this.interval = setInterval(() => {
             this.currentTime = this.getCurrentTime()
