@@ -1,18 +1,39 @@
 <template>
-	<div class="ad">
+	<div
+        class="ad"
+        :style="{
+            'background-image': `url(${image})`,
+            'padding-top': paddingTop,
+        }">
+
         <p>Advertising</p>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    props: {
+        image: {
+            type: String,
+            required: true,
+        },
+        width: {
+            type: Number,
+            required: true,
+        },
+        height: {
+            type: Number,
+            required: true,
+        },
+    },
+    computed: {
+        paddingTop() {
+            return `${(this.height / this.width) * 100}%`;
+        },
+    },
+};
 </script>
 
 <style>
-.ad {
-    background-color: lightyellow;
-    min-height: 100px;
-    line-height: 100px;
-    text-align: center;
-}
+/* Styles in index.astro so both Vue ad and astro ad can use them */
 </style>

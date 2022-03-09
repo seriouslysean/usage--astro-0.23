@@ -1,7 +1,11 @@
 ---
 // Component Imports
-import BaseLayout from '../components/BaseLayout.vue';
+import Ad from '../components/Ad.astro';
 import Counter from '../components/Counter.vue';
+import Footer from '../components/Footer.vue';
+import Header from '../components/Header.vue';
+import Nav from '../components/Nav.vue';
+import Side from '../components/Side.vue';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -12,14 +16,142 @@ import Counter from '../components/Counter.vue';
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="/reset.css" />
+        <!-- Need global to make sure styles aren't scoped -->
+        <!-- https://docs.astro.build/en/guides/styling/ -->
+        <style global>
+            html {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 1.5em;
+                line-height: 1.5;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            hr {
+                border-style: none;
+                border-bottom: 3px solid lightgrey;
+                margin: 2em 0;
+            }
+
+            .header {
+                grid-area: header;
+            }
+            .content {
+                grid-area: content;
+            }
+            .nav {
+                grid-area: nav;
+            }
+            .side {
+                grid-area: sidebar;
+            }
+            .ad {
+                grid-area: ad;
+            }
+            .footer {
+                grid-area: footer;
+            }
+
+            .app {
+                display: grid;
+                gap: 20px;
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "content"
+                    "sidebar"
+                    "ad"
+                    "footer";
+            }
+
+            @media (min-width: 500px) {
+                .app {
+                    grid-template-columns: 1fr 3fr;
+                    grid-template-areas:
+                    "header  header"
+                    "nav     nav"
+                    "sidebar content"
+                    "ad      footer";
+                }
+                nav ul {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+            @media (min-width: 700px) {
+                .app {
+                    grid-template-columns: 1fr 4fr 1fr;
+                    grid-template-areas:
+                    "header header  header"
+                    "nav    content sidebar"
+                    "nav    content ad"
+                    "footer footer  footer";
+                }
+                nav ul {
+                    flex-direction: column;
+                }
+            }
+            .ad {
+                background: lightyellow none no-repeat center;
+                background-size: cover;
+                text-align: center;
+                position: relative;
+                margin: 1em;
+                color: white;
+                text-shadow: -1px 1px 0 #000,
+                    1px 1px 0 #000,
+                    1px -1px 0 #000;
+                    -1px -1px 0 #000;
+            }
+
+            .ad p {
+                position: absolute;
+                padding: 1em;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                right: 0;
+            }
+        </style>
 	</head>
 	<body>
-        <BaseLayout>
-			<section class="section__full">
-				<Counter client:visible>
-					<h1>Hello, Vue!</h1>
-				</Counter>
-			</section>
-        </BaseLayout>
+        <div class="app">
+            <Header />
+
+            <Nav />
+
+            <!-- http://www.catipsum.com/ -->
+            <main class="content">
+                <h1>Astro + Vue 3</h1>
+
+                <p>Cat ipsum dolor sit amet, mouser. Tom russian blue for himalayan abyssinian . Abyssinian donskoy. Donskoy grimalkin turkish angora yet tiger ragdoll. Bobcat singapura balinese sphynx. Jaguar. Donskoy puma abyssinian , for turkish angora.</p>
+
+                <hr>
+
+                <p>Burmese mouser yet devonshire rex savannah so ragdoll. Bengal himalayan burmese tiger. Sphynx jaguar so devonshire rex. Siamese cougar ocelot, so devonshire rex. Kitty british shorthair tom. Singapura lynx munchkin burmese savannah and cheetah. Grimalkin.</p>
+
+                <hr>
+
+                <p>Siamese munchkin and puma for puma, havana brown. Siberian bobcat so ragdoll for lion tom balinese . Birman devonshire rex and donskoy british shorthair cougar. Panther birman or abyssinian . Ocicat. Bombay bobcat. Norwegian forest.</p>
+            </main>
+
+            <Side />
+
+            <!-- Astro component, similar to vue but different syntax -->
+            <!-- https://docs.astro.build/en/core-concepts/astro-components/ -->
+            <Ad
+                image="https://placekitten.com/200/300"
+                width="200"
+                height="300" />
+
+            <Footer />
+        </div>
 	</body>
 </html>

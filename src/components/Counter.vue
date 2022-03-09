@@ -1,11 +1,8 @@
 <template>
 	<div class="counter">
-		<button @click="subtract()">-</button>
+		<button @click="subtract">-</button>
 		<pre>{{ count }}</pre>
-		<button @click="add()">+</button>
-	</div>
-	<div class="counter-message">
-		<slot />
+		<button @click="add">+</button>
 	</div>
 </template>
 
@@ -34,7 +31,7 @@ export default {
 	margin-top: 2em;
 	place-items: center;
 }
-.counter-message {
+.counter__text {
 	text-align: center;
 }
 </style>
