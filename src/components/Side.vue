@@ -4,15 +4,15 @@
 
         <Ad
             title="SSR Ad (Vue)"
-            image="https://placekitten.com/200/100"
+            image="https://placekitten.com/400/200"
             :width="200"
             :height="100" />
 
         <Ad
             title="SSR Ad (Vue)"
-            image="https://placekitten.com/300/100"
+            image="https://placekitten.com/600/600"
             :width="300"
-            :height="100" />
+            :height="300" />
     </aside>
 </template>
 

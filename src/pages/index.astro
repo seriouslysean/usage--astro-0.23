@@ -125,15 +125,23 @@ import Side from '../components/Side.vue';
         <!--
             Custom render functions from Astro will hydrate at various points of the lifecycle:
                 - client:load
-                    - hydrates as soon as the page triggers the load event
+                    - Start importing the component JS at page load.
+                    - Useful for immediately-visible UI elements that need to be interactive as soon as possible.
                 - client:idle
-                    - hydrates as soon as the main thread is free
+                    - Start importing the component JS as soon as main thread is free.
+                    - Useful for items that don’t need to be immediately interactive.
                 - client:visible
-                    - hydrates as soon as the element enters the viewport
+                    - Start importing the component JS as soon as the element enters the viewport.
+                    - Useful for content lower down on the page.
                 - client:media={QUERY}
-                    - hydrates as soon as the browser matches the given media query
+                    - Start importing the component JS as soon as the browser matches the given media query.
+                    - Useful for sidebar toggles, or other elements that might be used only for certain screen sizes.
+                    - Remember, this directive only refers to making the component interactive at certain media queries.
+                      This does not affect the component being rendered to the screen, nor its visibility!
                 - client:only="{renderer}"
-                    - hydrates as soon as the page is ready
+                    - Start importing the component JS at page load, similar to client:load.
+                    - This component will be skipped at build time, and to assist the client, you should specify which
+                      renderer to use from the array in your astro.config.mjs configuration.
 
             See https://docs.astro.build/en/core-concepts/framework-components/
         -->
@@ -179,7 +187,7 @@ import Side from '../components/Side.vue';
                 <!-- Pass raw vars inside of {} to ensure proper type -->
                 <VueAd
                     title="CSR Ad (Vue)"
-                    image="https://placekitten.com/800/150"
+                    image="https://placekitten.com/1600/300"
                     width={800}
                     height={100}
                     client:only="vue" />
@@ -194,7 +202,7 @@ import Side from '../components/Side.vue';
             <!-- https://docs.astro.build/en/core-concepts/astro-components/ -->
             <AstroAd
                 title="SSR Ad (Astro)"
-                image="https://placekitten.com/200/300"
+                image="https://placekitten.com/400/600"
                 width={200}
                 height={300} />
 

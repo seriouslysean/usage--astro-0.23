@@ -4,7 +4,6 @@ const { title, image, width, height } = Astro.props;
 const getValueAsInt = n => typeof n === 'number' ? n : parseInt(n, 10);
 const paddingTop = `${(getValueAsInt(height) / getValueAsInt(width)) * 100}%`;
 ---
-
 <div
     class="ad"
     style={`background-image:url(${image});padding-top:${paddingTop};`}>
