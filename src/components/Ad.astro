@@ -1,7 +1,8 @@
 ---
 // Access passed-in component props, like `<X title="Hello, World" />`
 const { title, image, width, height } = Astro.props;
-const paddingTop = `${(height / width) * 100}%`;
+const getValueAsInt = n => typeof n === 'number' ? n : parseInt(n, 10);
+const paddingTop = `${(getValueAsInt(height) / getValueAsInt(width)) * 100}%`;
 ---
 
 <div

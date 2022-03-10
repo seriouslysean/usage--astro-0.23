@@ -146,7 +146,7 @@ import Side from '../components/Side.vue';
             <main class="content">
                 <h1>Astro + Vue 3</h1>
 
-                <p>Cat ipsum dolor sit amet, mouser. Tom russian blue for himalayan abyssinian . Abyssinian donskoy. Donskoy grimalkin turkish angora yet tiger ragdoll. Bobcat singapura balinese sphynx. Jaguar. Donskoy puma abyssinian , for turkish angora.</p>
+                <p>Cat ipsum dolor sit amet, mouser. Tom russian blue for himalayan abyssinian. Abyssinian donskoy. Donskoy grimalkin turkish angora yet tiger ragdoll. Bobcat singapura balinese sphynx. Jaguar. Donskoy puma abyssinian , for turkish angora.</p>
 
                 <hr>
 
@@ -154,17 +154,18 @@ import Side from '../components/Side.vue';
 
                 <hr>
 
-                <p>Siamese munchkin and puma for puma, havana brown. Siberian bobcat so ragdoll for lion tom balinese . Birman devonshire rex and donskoy british shorthair cougar. Panther birman or abyssinian . Ocicat. Bombay bobcat. Norwegian forest.</p>
+                <p>Siamese munchkin and puma for puma, havana brown. Siberian bobcat so ragdoll for lion tom balinese. Birman devonshire rex and donskoy british shorthair cougar. Panther birman or abyssinian. Ocicat. Bombay bobcat. Norwegian forest.</p>
 
                 <!-- Astro component, similar to vue but different syntax -->
                 <!-- https://docs.astro.build/en/core-concepts/astro-components/ -->
+                <!-- Pass props as a string by using quotes "" -->
                 <AstroAd
                     title="SSR Ad (Astro)"
                     image="https://placekitten.com/800/100"
                     width="800"
                     height="100" />
 
-                <p>Tomcat cougar leopard for havana brown. American shorthair tabby for ocicat. Turkish angora ocicat, yet havana brown british shorthair singapura leopard. Maine coon abyssinian . Ocelot. Maine coon donskoy.</p>
+                <p>Tomcat cougar leopard for havana brown. American shorthair tabby for ocicat. Turkish angora ocicat, yet havana brown british shorthair singapura leopard. Maine coon abyssinian. Ocelot. Maine coon donskoy.</p>
 
                 <hr>
 
@@ -172,14 +173,15 @@ import Side from '../components/Side.vue';
 
                 <hr>
 
-                <p>Cat ipsum dolor sit amet, mouser. Tom russian blue for himalayan abyssinian . Abyssinian donskoy. Donskoy grimalkin turkish angora yet tiger ragdoll. Bobcat singapura balinese sphynx. Jaguar. Donskoy puma abyssinian , for turkish angora.</p>
+                <p>Cat ipsum dolor sit amet, mouser. Tom russian blue for himalayan abyssinian. Abyssinian donskoy. Donskoy grimalkin turkish angora yet tiger ragdoll. Bobcat singapura balinese sphynx. Jaguar. Donskoy puma abyssinian , for turkish angora.</p>
 
                 <!-- Client side only rendered VUE ad, will not render on SSR -->
+                <!-- Pass raw vars inside of {} to ensure proper type -->
                 <VueAd
                     title="CSR Ad (Vue)"
                     image="https://placekitten.com/800/150"
-                    width="800"
-                    height="100"
+                    width={800}
+                    height={100}
                     client:only="vue" />
 
                 <p>Burmese mouser yet devonshire rex savannah so ragdoll. Bengal himalayan burmese tiger. Sphynx jaguar so devonshire rex. Siamese cougar ocelot, so devonshire rex. Kitty british shorthair tom. Singapura lynx munchkin burmese savannah and cheetah. Grimalkin.</p>
@@ -193,8 +195,8 @@ import Side from '../components/Side.vue';
             <AstroAd
                 title="SSR Ad (Astro)"
                 image="https://placekitten.com/200/300"
-                width="200"
-                height="300" />
+                width={200}
+                height={300} />
 
             <Footer client:visible />
         </div>
